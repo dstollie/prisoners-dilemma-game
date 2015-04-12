@@ -1,0 +1,30 @@
+<template name="gamePlay">
+    <div class="page-header">
+        <h1>Ronde {{currentGameRound.roundCount}}</h1>
+    </div>
+    {{> Template.dynamic template=template }}
+</template>
+
+<template name="_gamePlayPick">
+    <!--<div class="col col-md-4 center-block">-->
+        {{#if answeredByMe}}
+            <p>Je hebt je antwoord al gegeven voor deze ronde. Maar je tegenstander nog niet. Klik op "probeer" om te controleren of je tegenstander al klaar is om zo naar de volgende ronde te gaan.</p>
+            <button type="button" class="btn btn-default meewerken">Probeer</button>
+        {{else}}
+            <button type="button" class="btn btn-default meewerken">Meewerken</button>
+            <button type="button" class="btn btn-default niet-meewerken">Niet meewerken</button>
+        {{/if}}
+    <!--</div>-->
+</template>
+
+<template name="_gamePlaySee">
+    <p>Jouw tegenstander heeft gekozen voor "{{pickedChoice}}".<br>
+        Jij hebt hiermee {{obtainedPoints}} punten verdiend.</p>
+    <p>Jouw totaal aantal punten is nu: {{currentScore}}</p>
+    {{#if gameFinished}}
+        <p>Het spel is afgelopen. Roep je proefleider.</p>
+    {{else}}
+        <input type="button" class="btn btn-default next-round" value="naar de volgende ronde" />
+    {{/if}}
+</template>
+

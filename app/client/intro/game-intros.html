@@ -1,0 +1,55 @@
+<template name="gameIntroOne">
+    <div class="intro-container">
+        <p>Fijn dat je mee wil doen aan het onderzoek. Dit onderzoek zal ongeveer 15 minuten duren. In dit onderzoek krijg je een filmpje te zien. Vervolgens geven we jou een vragenlijst die je helemaal moet invullen. Als laatste ga je een spel spelen en je doet dit tegen een  andere participant. Je kunt hiermee een leuke prijs winnen, dus probeer hierbij een zo goed mogelijke beslissing te maken. Tijdens het onderzoek zal je anoniem blijven en worden ook de resultaten anoniem verwerkt. Je kunt elk moment stoppen met het onderzoek.
+            Mochten er nog vragen zijn, kun je uiteraard de proefleider benaderen.</p>
+
+        <p>Het spel dat gespeeld gaat worden is een beslissings-spel en zal bestaan uit 25 rondes. Per ronde zijn er punten te verdelen. Je kunt punten verdienen door ‘samenwerken‘ of ‘niet samenwerken‘ te kiezen. Er zijn vier mogelijke uitkomsten; kiezen jullie beiden voor  ‘samenwerken‘, dan verdienen jullie beiden 3 punten. Kiezen jullie beiden voor ‘ niet samenwerken‘ dan verdienen jullie beiden 1 punt. Kies jij voor ‘samenwerken‘ en jouw tegenstander voor ‘niet samenwerken‘ verdien jij niets, en jouw tegenstander 5 punten. Echter als jij kiest voor ‘niet samenwerken‘ en jouw tegenstander voor ‘samenwerken‘ verdien jij 5 punten, en jouw tegenstander niets.
+            Denk bij jouw beslissing goed na, want je weet niet wat je tegenstander zal kiezen.</p>
+
+        <p>Klik nu op de onderstaande knop om naar het filmfragment te gaan.</p>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a href="{{pathFor 'gameIntroTwo' gameId = game._id }}" class="btn btn-primary btn-lg btn-block next-button">Naar het filmfragment!</a>
+        </div>
+    </div>
+</template>
+
+<template name="gameIntroTwo">
+    <div class="intro-container">
+        <p>Nu krijg je het filmfragment te zien. Na het bekijken van het filmfragment moet je je proefleider roepen.</p>
+    </div>
+    <div class="video row">
+        <div class="col-md-8 col-md-offset-2 col">
+            {{#if isPositive}}
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/YoejGVamAKE"></iframe>
+                </div>
+            {{else}}
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/SU7NGJw0kR8"></iframe>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a href="{{pathFor 'gameIntroThree' gameId = game._id }}" class="btn btn-primary btn-lg btn-block next-button">Verder</a>
+        </div>
+    </div>
+</template>
+
+<template name="gameIntroThree">
+    <p>intro 3</p>
+    <ul>
+        <li>If both players defect, each recieves the Punishment for mutual defection of 1 point.</li>
+        <li>If both players co-operate they recieve the Reward for mutual co-operation of 3 points.</li>
+        <li>If one player defects and the other co-operates, one recieves the Temptation to defect of 5 points whereas the other recieves nothing: the Sucker's payoff.</li>
+    </ul>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a href="{{pathFor 'gamePlay' gameId = game._id roundCount = 1 }}" class="btn btn-primary btn-lg btn-block next-button">Start het spel</a>
+        </div>
+    </div>
+</template>

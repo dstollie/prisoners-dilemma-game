@@ -1,0 +1,26 @@
+{
+  "name": "prisoners-dilemma-game",
+  "version": "0.0.0",
+  "authors": [
+    "Dennis Stolmeijer <me@dennisstolmeijer.nl>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "overrides": {
+    "bootstrap": {
+      "main": null
+    }
+  },
+  "dependencies": {
+    "bootstrap-sass": "~3.3.4",
+    "summernote": "~0.6.3",
+    "bootbox": "~4.4.0"
+  }
+}

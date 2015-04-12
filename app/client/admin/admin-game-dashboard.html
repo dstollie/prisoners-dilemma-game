@@ -1,0 +1,39 @@
+<template name="adminGameDashboard">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Hey!</h1>
+            <p>Welkom op het beheer paneel van The Prisoners Dilemma Game!</p>
+            <p>Hieronder zie je een overzicht van alle games die er ooit zijn aangemaakt. Nog geen aangemaakt game of wil je een nieuwe game starten? Klik op de dikke + knop!</p>
+            <p>Nog niet bekend met de prisoners game? Klik <a href="" class="intro-video">hier</a> voor het introductie filmpje</p>
+            <p><a class="btn btn-primary btn-lg add-game" href="#" role="button"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></p>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Game overzicht</div>
+        <div class="panel-body">
+            <p>Overzicht van alle games</p>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>Game #</th>
+                    <th>Game code</th>
+                    <th>type</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each this}}
+                    <tr>
+                        <th scope="row">{{name}}</th>
+                        <td><a href="{{pathFor 'gameIntroOne' gameId = this._id }}">{{_id}}</a></td>
+                        <td>{{type}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
