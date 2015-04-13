@@ -3,9 +3,6 @@
  * @since   06/04/15
  */
 
-var basicAuth = new HttpBasicAuth("admin", "eoonderzoek123");
-basicAuth.protect();
-
 Router.configure({
     layoutTemplate: 'baseLayout',
     waitOn: function() {
