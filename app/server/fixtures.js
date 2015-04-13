@@ -7,8 +7,8 @@
 function loadUsers() {
     if (Meteor.users.find().count() === 0) {
         var userId = Accounts.createUser({
-            password: 'admin',
-            username: 'eoonderzoek123'
+            password: 'eoonderzoek123',
+            username: 'admin'
         });
 
         updateAdmin(userId, true);
