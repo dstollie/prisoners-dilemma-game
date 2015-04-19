@@ -1,0 +1,20 @@
+<template name="adminExport">
+    <table>
+        <tr>
+            <th style="width: 150px">Participant</th>
+            <th style="width: 150px">Type</th>
+            <th style="width: 150px">Aantal Keer Meewerken</th>
+            <th style="width: 150px">Aantal Keer Niet Meewerken</th>
+            <th style="width: 150px">Score Participant</th>
+        </tr>
+        {{#each games}}
+            <tr>
+                <td>{{opponentUsername}}</td>
+                <td>{{type}}</td>
+                <td>{{opponentMeewerkenCount}}</td>
+                <td>{{opponentNietMeewerkenCount}}</td>
+                <td>{{score}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</template>

@@ -17,6 +17,21 @@ _.extend(Game.prototype, {
 	gameRounds: function() {
 		return GameRounds.find({ gameId: this._id }).fetch();
 	},
+	rounds: function() {
+		return GameRounds.find({ gameId: this._id });
+	},
+	getOpponent: function() {
+		var player = _.find(this.players, function(player) {
+			return player.userId !== Meteor.userId();
+		});
+
+		console.log(player);
+
+		if(player)
+			return Meteor.users.findOne({ _id: player.userId });
+
+		return player;
+	},
 	gamePlayers: function() {
 		if(!this.players)
 			return null;
@@ -90,4 +105,22 @@ determineScore = function(scores) {
 		return [5 ,0];
 
 	return [1, 1];
+};
+
+determineType = function(scores) {
+	if(!_.isArray(scores) || scores.length < 2)
+		return null;
+
+	// Meewerken (1) - Meewerken (1) = 3 - 3
+	if(scores[0] === '3' && scores[0] === scores[1] )
+		return [1, 1];
+
+	// Meewerken (1) - Niet-meewerken (0) = 0 - 5
+	if(scores[0] === '0' && scores[0] !== scores[1] )
+		return [1, 0];
+
+	if(scores[0] === '5' && scores[0] !== scores[1])
+		return [0 , 1];
+
+	return [0, 0];
 };

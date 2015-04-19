@@ -119,6 +119,20 @@ Router.route('/admin', {
     }
 });
 
+Router.route('/admin/export', {
+	name: 'adminExport',
+	data: function() {
+		return {
+			games: function() {
+				return Games.find()
+			},
+			rounds: function() {
+				return GameRounds.find();
+			}
+		}
+	}
+});
+
 Router.route('/admin/games/:gameId', {
     name: 'adminGameDetail',
     data: function() {
